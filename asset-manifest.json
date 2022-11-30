@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/theShowCode/static/css/main.2a825b17.css",
+    "main.js": "/theShowCode/static/js/main.2a4fb304.js",
+    "index.html": "/theShowCode/index.html",
+    "main.2a825b17.css.map": "/theShowCode/static/css/main.2a825b17.css.map",
+    "main.2a4fb304.js.map": "/theShowCode/static/js/main.2a4fb304.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2a825b17.css",
+    "static/js/main.2a4fb304.js"
+  ]
+}
