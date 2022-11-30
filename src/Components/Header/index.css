@@ -16,22 +16,71 @@ h1{
 }
 .header {  
     background-color: var(--white);
-    display:  flex;
-    gap: 40px;
-    align-items: center;
+  position: relative;
 }
 .image_header{
-   
-    display: block;
+  width: 98.8vw;
+  background-size: cover;
+  object-fit: contain;
+  opacity: 0.9;
 
 }
+.previous,.next{
+    all: unset;
+}
+.previous{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin-left: 0.5rem;
+    transition: 1s;
+   color: var(--white);
+   font-size: 32px;
+
+}
+.next{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin-right: 0.5rem;
+    transition: 1s;
+   color: var(--white);
+   font-size: 32px;
+}
+.next:hover,.previous:hover{
+    border-radius: 50%;
+    background-color: var(--white);
+    color:var(--black)
+}
+.opacity{
+    width: 100%;
+    height: 100%;
+    background: black;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    opacity: 0.2;
+}
 .text {
-    
-    
-    width: 50%;
-    padding: 100px;
+    width: 80%;
     padding-left: 0;
-    color: var(--black);
+    color: var(--white);
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    z-index: 3;
 }
 .text >h3 {
     font-size: 64px;
@@ -53,6 +102,6 @@ h1{
     transition: all 0.5s ease-out;
 }
 .btn_header:hover{
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--black);
 }

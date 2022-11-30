@@ -1,32 +1,36 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FilterContext } from "../../Context/CineContext";
-import { getRandomItem } from "../../Services/helpers";
-import { discoverMovies } from "../../Services/Movies";
+import { discoverMovies, getImageMovie } from "../../Services/Movies";
 import { Card } from "../Card";
 import { CardList } from "../CardList";
 import { Filters } from "../Filters";
 import { Header } from "../Header";
-
 import { Loading } from "../Loanding";
 import { Modal } from "../Modal";
 import { MovieDetail } from "../MovieDetail";
+
 import "./App.css";
 
 function App() {
   const { valueInput, filter } = useContext(FilterContext);
   const [movies, setMovies] = useState([]);
+  const [imagesMovies, setImagesMovies] = useState([])
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [movieId, setMovieId] = useState(0);
 
-  const headerMovie = useRef({});
+
 
   useEffect(() => {
     discoverMovies()
       .then((data) => {
         setMovies(data.results);
-        headerMovie.current = getRandomItem(data.results);
+        let Images = []
+        data.results.forEach(movie => {
+          Images.push({image: getImageMovie(movie.backdrop_path),title: movie.title,id: movie.id,overview: movie.overview})
+        });  
+        setImagesMovies(Images)
       })
       .catch((error) => {
         new Error(error);
@@ -45,10 +49,10 @@ function App() {
       {((movies.length > 0 && !loading) || !!valueInput) && (
         <>
           <Header
-            movies={headerMovie}
             setOpenModal={setOpenModal}
             setMovieId={setMovieId}
             setMovies={setMovies}
+            imagesMovies = {imagesMovies}
           />
           <Filters />
           <CardList>
@@ -69,9 +73,11 @@ function App() {
                 />
               ))}
           </CardList>
+
+          
           {openModal && (
             <Modal>
-              <MovieDetail setOpenModal={setOpenModal} movieId={movieId} />
+              <MovieDetail setOpenModal={setOpenModal} movieId={movieId} setMovieId ={setMovieId}/>
             </Modal>
           )}
         </>

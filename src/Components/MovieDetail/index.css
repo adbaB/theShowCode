@@ -1,12 +1,13 @@
 .modal-container{
     background-color: var(--black-background);
-    width: 60%;
+    width: 90%;
     margin: auto;
     color: var(--white);
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     position: relative;
     height: 100vh;
+
 }
 .btn-detail{
    
@@ -55,4 +56,31 @@
     font-size: 20px;
     margin-bottom: 1rem;
 
+}
+
+.modal-nav> .tab{
+display: grid;
+grid-template-columns: 18% auto;
+}
+.modal-nav >.tab > ul {
+    background-color: var(--white);
+    height: 100%;
+
+}
+
+.modal-nav >.tab > ul> li{
+    color: var(--black);
+    margin-top: 20px;
+    margin-left: 10px;
+    font-weight: 700;
+    padding: 10px 0 10px 0 ;
+    padding-left: 15px; 
+    border-bottom: 1px solid var(--black);
+    border-radius: 10px;
+    transition: 1s;
+
+}
+
+.modal-nav >.tab > ul> li:hover{
+    background-color: #b40c0c;
 }

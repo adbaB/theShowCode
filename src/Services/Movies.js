@@ -1,6 +1,6 @@
 import { getApi } from "../Config/getApi";
 
-export const discoverMovies =  () => {
+export const discoverMovies = async () => {
   const apiUrl = getApi("discover/movie");
 
   return fetch(apiUrl)
@@ -31,7 +31,7 @@ export const getImageMovie =  (image, type = 'original') =>{
     return  image !== null ?`https://image.tmdb.org/t/p/${type+image}`: 'https://image.shutterstock.com/image-vector/image-not-found-grayscale-photo-260nw-1737334631.jpg'
 }
 
-export const getDetailMovie = (id) => {
+export const getDetailMovie = async(id) => {
   const apiUrl = getApi(`movie/${id}`);
   return fetch(apiUrl)
   .then((response) => response.json())
@@ -40,6 +40,26 @@ export const getDetailMovie = (id) => {
     throw new error(error);
   });
  
+}
+export const getMovieCredits = async( id) => {
+  const apiUrl = getApi(`movie/${id}/credits`);
+  console.log(apiUrl)
+  return fetch(apiUrl)
+  .then((response) => response.json())
+  .then((data) => data)
+  .catch((error) => {
+    throw new error(error);
+  });
+}
+
+export const getRecommendationsMovies= async(id)=>{
+  const apiUrl = getApi(`movie/${id}/recommendations`);
+  return fetch(apiUrl)
+  .then((response) => response.json())
+  .then((data) => data)
+  .catch((error) => {
+    throw new error(error);
+  });
 }
 
 export const getMovieVideo = async (id) =>{

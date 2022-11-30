@@ -1,0 +1,10 @@
+.movie-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    height: 100%;
+    gap: 50px;
+    padding: 50px;
+}
+.title{
+    font-weight: 700;
+}

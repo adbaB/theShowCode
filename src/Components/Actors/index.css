@@ -1,0 +1,31 @@
+.container-actor{
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-left: 15px;
+    gap: 10px;
+}
+.img-actor{
+    width: 200px ;
+    margin: auto;
+}
+.card-actor{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: var(--white);
+    border-radius: 12px;
+}
+.text-actor{
+    background: var(--white);
+    padding: 10px;
+    border-radius: inherit;
+}
+.text-actor> p {
+    color: var(--black);
+    text-align: center;
+}
+.text-actor> p:first-child{
+ font-weight: 700;
+ font-size: 18px; 
+} 
